@@ -1,19 +1,18 @@
-diff --git a/src/rrd_daemon.c b/src/rrd_daemon.c
-index 3ad3a66f..cf125476 100644
 --- a/src/rrd_daemon.c
 +++ b/src/rrd_daemon.c
-@@ -3412,10 +3412,12 @@ static int journal_write(
- {                       /* {{{ */
-     int       chars;
+@@ -3295,10 +3295,12 @@ static int journal_write(char *cmd, char *args) /* {{{ */
+ {
+   int chars;
  
--    if (journal_fh == NULL)
-+    pthread_mutex_lock(&journal_lock);
-+    if (journal_fh == NULL) {
-+        pthread_mutex_unlock(&journal_lock);
-         return 0;
+-  if (journal_fh == NULL)
+-    return 0;
+-
+   pthread_mutex_lock(&journal_lock);
++  if (journal_fh == NULL) {
++      pthread_mutex_unlock(&journal_lock);
++      return 0;
 +    }
- 
--    pthread_mutex_lock(&journal_lock);
-     chars = fprintf(journal_fh, "%s %s\n", cmd, args);
-     journal_size += chars;
++
+   chars = fprintf(journal_fh, "%s %s\n", cmd, args);
+   journal_size += chars;
  
