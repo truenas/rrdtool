@@ -1,4 +1,4 @@
-rrdtool (1.99.0-1) unstable; urgency=medium
+rrdtool (1.99.0-2) unstable; urgency=medium
 
   * Add custom TrueNAS patches
 

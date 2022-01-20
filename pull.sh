@@ -13,4 +13,7 @@ rm rrdtool_$VERSION.orig.tar.gz
 cp remove-corrupted-rrd-files.patch debian/patches
 echo 'remove-corrupted-rrd-files.patch' >> debian/patches/series
 
+cp fix-race-condition-in-joutnal_write.patch debian/patches
+echo 'fix-race-condition-in-joutnal_write.patch' >> debian/patches/series
+
 echo -e "$(cat changelog)\n\n$(cat debian/changelog)" > debian/changelog
