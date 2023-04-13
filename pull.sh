@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 VERSION=1.7.2
-REVISION=3
+REVISION=4
 
 wget http://deb.debian.org/debian/pool/main/r/rrdtool/rrdtool_$VERSION-$REVISION.debian.tar.xz
 tar xf rrdtool_$VERSION-$REVISION.debian.tar.xz
